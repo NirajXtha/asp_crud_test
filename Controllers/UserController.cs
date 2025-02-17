@@ -1,5 +1,8 @@
+using System.Security.Claims;
 using Crud_test.Data;
 using Crud_test.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Crud_test.Controllers
@@ -19,14 +22,32 @@ namespace Crud_test.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(Users user)
+        public async Task<IActionResult> LoginAsync(Users user)
         {
             if (ModelState.IsValid)
             {
-                var existingUser = _context.Users.FirstOrDefault(u => u.Username == user.Username && u.Password == user.Password);
+                var existingUser = _context.Users.FirstOrDefault(u => u.Username == user.Username 
+                                                                && u.Password == user.Password);
                 if (existingUser != null)
                 {
                     // Successful login
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, existingUser.Username),
+                        new Claim(ClaimTypes.NameIdentifier, existingUser.Id.ToString())
+                    };
+                    var claimsIdentity = new ClaimsIdentity(
+                        claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var authProperties = new AuthenticationProperties
+                    {
+                        IsPersistent = true
+                    };
+
+                    // Sign in the user
+                    await HttpContext.SignInAsync(
+                        CookieAuthenticationDefaults.AuthenticationScheme,
+                        new ClaimsPrincipal(claimsIdentity), authProperties);
+
                     return RedirectToAction("Index", "Products");
                 }
                 ModelState.AddModelError("", "Invalid username or password.");

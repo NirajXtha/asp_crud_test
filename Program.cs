@@ -1,10 +1,18 @@
 using Crud_test.Data;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Home/Login";
+    });
+
 var connString = builder.Configuration.GetConnectionString("Data");
 builder.Services.AddDbContext<ProductContext>(options => options.UseSqlite(connString));
 
@@ -21,14 +29,13 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=User}/{action=Login}")
-    .WithStaticAssets();
-
+    pattern: "{controller=User}/{action=Login}/{id?}");
 
 app.Run();
