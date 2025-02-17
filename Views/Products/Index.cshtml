@@ -4,7 +4,11 @@
     ViewData["Title"] = "Products";
 }
 <div class="container p-3">
-    <h2>Products</h2>
+    <div class="d-flex flex-row justify-content-between">
+        <h2>Products</h2>
+        <a asp-controller="User" asp-action="Logout" class="btn btn-danger">Logout</a>
+    </div>
+    
 
     <p>
         <a asp-action="Create" class="btn btn-primary">Create New</a>

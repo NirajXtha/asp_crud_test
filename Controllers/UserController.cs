@@ -56,5 +56,12 @@ namespace Crud_test.Controllers
             }
             return View(user);
         }
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return RedirectToRoute(new { controller = "User", action = "Login" });
+        }
     }
 }
