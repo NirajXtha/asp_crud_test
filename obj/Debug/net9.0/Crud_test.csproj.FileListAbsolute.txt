@@ -80,8 +80,6 @@ E:\vs\Crud_test\obj\Debug\net9.0\compressed\3cqomudmxl-2z0ns9nrw6.gz
 E:\vs\Crud_test\obj\Debug\net9.0\compressed\v3q4pa5lsi-muycvpuwrr.gz
 E:\vs\Crud_test\obj\Debug\net9.0\compressed\2asm8ax3h0-87fc7y1x7t.gz
 E:\vs\Crud_test\obj\Debug\net9.0\compressed\c22u6ii9rp-mlv21k5csn.gz
-E:\vs\Crud_test\obj\Debug\net9.0\compressed\gao0o6lyoh-orjf232rc5.gz
-E:\vs\Crud_test\obj\Debug\net9.0\compressed\3q7ed4hvb5-orjf232rc5.gz
 E:\vs\Crud_test\obj\Debug\net9.0\staticwebassets.build.json
 E:\vs\Crud_test\obj\Debug\net9.0\staticwebassets.development.json
 E:\vs\Crud_test\obj\Debug\net9.0\staticwebassets.build.endpoints.json
@@ -220,3 +218,5 @@ E:\vs\Crud_test\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.Bu
 E:\vs\Crud_test\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 E:\vs\Crud_test\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 E:\vs\Crud_test\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+e:\vs\Crud_test\obj\Debug\net9.0\compressed\gao0o6lyoh-orjf232rc5.gz
+e:\vs\Crud_test\obj\Debug\net9.0\compressed\3q7ed4hvb5-orjf232rc5.gz
